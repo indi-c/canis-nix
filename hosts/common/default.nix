@@ -28,10 +28,10 @@
 
   nix = {
     settings = {
-      experimental-features = "nix-command flakes";
+      experimental-features = ["nix-command" "nix-command flakes"];
       trusted-users = [
         "root"
-        "your-user"
+        "indicanis"
       ]; # Set users that are allowed to use the flake command
     };
     gc = {
