@@ -105,7 +105,7 @@
   programs.hyprland = {
 	enable = true;
 	xwayland.enable = true;
-}
+  };
 
   # enable experimental features
   nix.settings.trusted-users = ["root" "indicanis"];
