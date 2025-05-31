@@ -85,6 +85,7 @@
     neovim
     wget
     git
+    hyprland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -100,8 +101,13 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  # Enable hyprland
+  programs.hyprland = {
+	enable = true;
+	xwayland.enable = true;
+}
+
   # enable experimental features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.trusted-users = ["root" "indicanis"];
 
   # Open ports in the firewall.
