@@ -10,5 +10,5 @@
         packages = [inputs.home-manager.packages.${pkgs.system}.default];
      };
      home-manager.users.indicanis =
-     	import indicanis/${config.networking.hostname}.nix;
+     	import ./indicanis/${config.networking.hostName}.nix;
 }
