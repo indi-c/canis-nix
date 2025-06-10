@@ -28,13 +28,13 @@
         forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
-        NL_I = nixpkgs.lib.nixosSystem {
+        NLI = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./hosts/NL_I];
+          modules = [ ./hosts/NLI];
         };
       };
       homeConfigurations = {
-        "indicanis@NL_I" = home-manager.lib.homeManagerConfiguration {
+        "indicanis@NLI" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home/indicanis/NL-I.nix ];
