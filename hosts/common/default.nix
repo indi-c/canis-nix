@@ -1,10 +1,17 @@
 # Common configuration for all hosts
 
-{ lib, inputs, outputs, ... }: {
+{ lib, inputs, outputs, pkgs, ... }: {
 
   imports = [
   ./users
   inputs.home-manager.nixosModules.home-manager
+  ];
+
+  environment.systemPackages = with pkgs; [
+      vim
+      git
+      wget
+      hyprland
   ];
   
   home-manager = {
@@ -54,4 +61,8 @@
       ((lib.filterAttrs (_: lib.isType "flake")) inputs);
     nixPath = [ "/etc/nix/path" ];
   };
+
+  # set shell to fish
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 }
