@@ -12,7 +12,11 @@
       git
       wget
       hyprland
+      gnome.gnome-keyring
+      gnome.seahorse
   ];
+
+  services.gnome.gnome-keyring.enable = true;
   
   home-manager = {
       useUserPackages = true;
