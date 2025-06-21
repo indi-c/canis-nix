@@ -27,6 +27,7 @@ in {
 			wlogout
 			wtype
 			ydotool
+			font-awesome
 		];
 	};
 }
