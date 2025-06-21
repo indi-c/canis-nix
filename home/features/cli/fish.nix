@@ -12,7 +12,7 @@ with lib; let
 	config = mkIf cfg.enable {
 		programs.fish = {
 			enable = true;
-			/* loginShellInit = ''
+			loginShellInit = ''
 				set -x NIX_PATH nixpkgs=channel:nixos-unstable
 				set -x NIX_LOG info
 				set -x TERMINAL kitty
@@ -20,7 +20,7 @@ with lib; let
 				if test (tty) = "/dev/tty1"
 					exec Hyprland &> /dev/null
 				end
-			'';*/
+			'';
 			shellAbbrs = {
 				".." = "cd ..";
 				"..." = "cd ../..";

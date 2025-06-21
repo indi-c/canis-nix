@@ -4,20 +4,34 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "mptspi" "uhci_hcd" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "cryptd" ];
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NLI_LUKS";
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1333d6a6-88d3-46ff-ba9f-29bbac657974";
+    { device = "/dev/disk/by-label/CANIS_ROOT";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/CANIS_BOOT";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/CANIS_HOME";
       fsType = "ext4";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/3eac49b8-3db3-4fdb-af45-e21c28764d61"; }
+    [ { device = "/dev/disk/by-label/CANIS_SWAP"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -25,7 +39,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.ens33.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.enableAllFirmware = true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

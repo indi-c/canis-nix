@@ -12,11 +12,12 @@
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
+  boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+  boot.loader.grub.useOSProber = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -90,6 +91,10 @@
 	enable = true;
 	xwayland.enable = true;
   };
+  security.pam.services.hyprland.enableGnomeKeyring = true;
+
+  # protonvpn needs
+  networking.firewall.checkReversePath = false;
 
   # enable experimental features
   nix.settings.trusted-users = ["root" "indicanis"];

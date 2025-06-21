@@ -1,8 +1,7 @@
 {
 	wayland.windowManager.hyprland = {
 		enable = true;
-		settings = {
-		};
+		# settings = {
+		# };
 	};
-	security.pam.services.hyprland.enableGnomeKeyring = true;
 }

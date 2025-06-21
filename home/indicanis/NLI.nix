@@ -13,5 +13,8 @@
 			fzf.enable = true;
 			neofetch.enable = true;
 		};
+		desktop = {
+			wayland.enable = true;
+		};
 	};
 }

@@ -12,8 +12,8 @@
       git
       wget
       hyprland
-      gnome.gnome-keyring
-      gnome.seahorse
+      gnome-keyring
+      seahorse
   ];
 
   services.gnome.gnome-keyring.enable = true;

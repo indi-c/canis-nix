@@ -12,8 +12,8 @@ in {
 	config = mkIf cfg.enable {
 		programs.waybar = {
 			enable = true;
-			settings = [];
-			style = '''';
+			# settings = [];
+			# style = '''';
 		};
 		home.packages = with pkgs; [
 			grim
