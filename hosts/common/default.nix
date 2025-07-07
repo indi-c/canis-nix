@@ -16,6 +16,22 @@
       seahorse
   ];
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  security.pam.services.hyprland.enableGnomeKeyring = true;
+
+
+  programs.thunar = {
+    enable = true;
+  };
+
+  programs.xfconf = {
+    enable = true;
+    # settings = [];
+  };
+
   services.gnome.gnome-keyring.enable = true;
   
   home-manager = {

@@ -27,6 +27,7 @@ with lib; let
 				ls = "eza";
 				grep = "rg";
 				ps = "procs";
+				cd = "z";
 			};
 			
 		};

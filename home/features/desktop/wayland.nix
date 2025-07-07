@@ -15,6 +15,7 @@ in {
 			# settings = [];
 			# style = '''';
 		};
+
 		home.packages = with pkgs; [
 			grim
 			hyprlock

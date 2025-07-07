@@ -1,7 +1,7 @@
 {pkgs, ...}: {
 	imports = [
 		./wayland.nix
-		# ./hyprland.nix
+		./hyprland.nix
 	];
 
 	home.packages = with pkgs; [

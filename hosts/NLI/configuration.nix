@@ -11,12 +11,14 @@
     ];
 
   # Use the GRUB 2 boot loader.
+  boot.loader.systemd-boot.enable = false;
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
+  # boot.loader.grub.efiInstallAsRemovable = true; # Install GRUB as a removable device, useful for dual-booting.
+  boot.loader.efi.efiSysMountPoint = "/boot"; 
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
 
   # Use latest kernel.
@@ -87,11 +89,7 @@
   # services.openssh.enable = true;
 
   # Enable hyprland
-  programs.hyprland = {
-	enable = true;
-	xwayland.enable = true;
-  };
-  security.pam.services.hyprland.enableGnomeKeyring = true;
+
 
   # protonvpn needs
   networking.firewall.checkReversePath = false;
