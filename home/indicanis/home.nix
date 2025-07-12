@@ -77,6 +77,7 @@
     enable = true;
     enableFlakes = true;
     enableFishIntegration = true;
+    nix-direnv.enable = true;
   };
 
   # Home Manager can also manage your environment variables through
