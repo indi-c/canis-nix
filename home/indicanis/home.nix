@@ -33,7 +33,6 @@
     protonvpn-gui
     efibootmgr
     logseq
-    direnv
     # wireguard-tools
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -72,6 +71,12 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableFlakes = true;
+    enableFishIntegration = true;
   };
 
   # Home Manager can also manage your environment variables through
