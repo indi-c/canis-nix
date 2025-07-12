@@ -33,6 +33,7 @@
     protonvpn-gui
     efibootmgr
     logseq
+    direnv
     # wireguard-tools
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -68,6 +69,9 @@
     enable = true;
     userName = "indi-c";
     userEmail = "indigoconnelly@pm.me";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   # Home Manager can also manage your environment variables through
