@@ -20,6 +20,7 @@
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
+  boot.loader.grub.theme = "${pkgs.grubstolfoCasual}/share/grub/themes/astolfoCasual/";
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;

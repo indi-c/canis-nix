@@ -89,6 +89,17 @@
             name = "elan0412:01-04f3:3240-touchpad";
             enabled = false;
         }
+        {
+            name = "syna8008:00-06cb:ce58-touchpad";
+            enabled = true;
+            sensitivity = 0.5;
+        }
+        {
+            name = "tpps/2-elan-trackpoint";
+            enabled = true;
+            sensitivity = 0;
+        }
+        
     ];
         xwayland = {
             force_zero_scaling = true;

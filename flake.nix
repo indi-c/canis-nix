@@ -13,6 +13,9 @@
     oxcgen = {
       url = "github:indi-c/oxcgen";
     };
+    grubstolfo-casual = {
+      url = "github:indi-c/astolfoCasual";
+    };
   };
 
   outputs = { self, home-manager, nixpkgs, oxcgen, ... }@inputs:
@@ -30,8 +33,10 @@
       overlays = system: [
         (final: prev: {
           oxcgen = inputs.oxcgen.packages.${system}.default; # Get oxcgen from the flake input
+          grubstolfoCasual = inputs.grubstolfo-casual.packages.${system}.default; # Get astolfoCasual from the flake input
           additions = prev.additions or {} // {
             oxcgen = final.oxcgen; # add oxcgen to the additions
+            grubstolfoCasual = final.grubstolfoCasual; # add astolfoCasual to the additions
           };
         })
       ];
