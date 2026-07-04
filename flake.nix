@@ -69,6 +69,17 @@
             }
           ];
         };
+
+	      canisX1 = nixpkgs.lib.nixosSystem {
+		      system = "x86_64-linux";
+		      specialArgs = { inherit inputs outputs; };
+		      modules = [
+			      ./hosts/canisX1
+			      {
+				      nixpkgs.overlays = overlays "x86_64-linux";
+			      }
+		      ];
+	      };
       };
       homeConfigurations = 
         let
@@ -82,6 +93,7 @@
           machines = {
             "NLI" = { system = "x86_64-linux"; homeFile = ./home/indicanis/NLI.nix; };
             "NTI" = { system = "x86_64-linux"; homeFile = ./home/indicanis/NTI.nix; };
+		        "canisX1" = { system = "x86_64-linux"; homeFile = ./home/indicanis/canisX1.nix; };
           };
         in 
           # Generate home configurations for each machine
