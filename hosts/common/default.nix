@@ -15,6 +15,7 @@
       gnome-keyring
       seahorse
       jekyll
+      bundler
   ];
 
   programs.hyprland = {
