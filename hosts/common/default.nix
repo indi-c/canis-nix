@@ -14,6 +14,7 @@
       hyprland
       gnome-keyring
       seahorse
+      jekyll
   ];
 
   programs.hyprland = {
