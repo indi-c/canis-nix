@@ -16,6 +16,7 @@
       seahorse
       jekyll
       bundler
+      gnumake
   ];
 
   programs.hyprland = {
